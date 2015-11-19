@@ -1,0 +1,62 @@
+body {
+  font-family: 'Helvetica', 'Arial', sans-serif;
+}
+body>h1 {
+  text-align: center;
+}
+hr {
+  width: 75%;
+}
+.radioGroup {
+  width: 90%;
+  margin: 0 auto;
+  text-align: center;
+}
+.radioLabel, .radio {
+  display: block;
+  margin: 0 auto;
+}
+.radioDiv {
+  text-align: center;
+  width: 10%;
+  float: left;
+  margin: 0 auto;
+}
+.wrapper {
+  width: 100%;
+}
+.alphList {
+  float: left;
+  width: 20%;
+  text-align: center;
+}
+.teamContainer {
+  float: left;
+  width: 75%;
+  text-align: center;
+}
+.team {
+  border: 2px solid;
+  margin: 5px 5px;
+  width: 45%;
+  float: left;
+}
+
+.team:nth-child(odd) {
+  float:left;
+}
+
+.team:nth-child(even) {
+  clear: left;
+}
+
+.memberBox {
+  margin: 5px auto;
+  width: 50%;
+  border: 2px solid;
+}
+.member {
+  line-height: 0.5em;
+  padding: 10px 0px;
+  margin: 0px;
+}

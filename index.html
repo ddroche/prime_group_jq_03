@@ -7,33 +7,61 @@
 </head>
 <body>
   <h1>Team Randomizer</h1>
+  <hr>
   <form>
     <div class="radioGroup">
       <h2>Select Number of Teams</h2>
-      <label for="two">2</label>
-      <input class="radio" type="radio" name="numberTeams" value="2" id="two"></input>
-      <label for="three">3</label>
-      <input class="radio" type="radio" name="numberTeams" value="3" id="three"></input>
-      <label for="four">4</label>
-      <input class="radio" type="radio" name="numberTeams" value="4" id="four"></input>
-      <label for="five">5</label>
-      <input class="radio" type="radio" name="numberTeams" value="5" id="five"></input>
-      <label for="six">6</label>
-      <input class="radio" type="radio" name="numberTeams" value="6" id="six"></input>
-      <label for="seven">7</label>
-      <input class="radio" type="radio" name="numberTeams" value="7" id="seven"></input>
-      <label for="eight">8</label>
-      <input class="radio" type="radio" name="numberTeams" value="8" id="eight"></input>
-      <label for="nine">9</label>
-      <input class="radio" type="radio" name="numberTeams" value="9" id="nine"></input>
-      <label for="ten">10</label>
-      <input class="radio" type="radio" name="numberTeams" value="10" id="ten"></input>
+      <div class="radioDiv">
+        <label class="radioLabel" for="two">2</label>
+        <input class="radio" type="radio" name="numberTeams" value="2" id="two"></input>
+      </div>
+      <div class="radioDiv">
+        <label class="radioLabel" for="three">3</label>
+        <input class="radio" type="radio" name="numberTeams" value="3" id="three"></input>
+      </div>
+      <div class="radioDiv">
+        <label class="radioLabel" for="four">4</label>
+        <input class="radio" type="radio" name="numberTeams" value="4" id="four"></input>
+      </div>
+      <div class="radioDiv">
+        <label class="radioLabel" for="five">5</label>
+        <input class="radio" type="radio" name="numberTeams" value="5" id="five"></input>
+      </div>
+      <div class="radioDiv">
+        <label class="radioLabel" for="six">6</label>
+        <input class="radio" type="radio" name="numberTeams" value="6" id="six"></input>
+      </div>
+      <div class="radioDiv">
+        <label class="radioLabel" for="seven">7</label>
+        <input class="radio" type="radio" name="numberTeams" value="7" id="seven"></input>
+      </div>
+      <div class="radioDiv">
+        <label class="radioLabel" for="eight">8</label>
+        <input class="radio" type="radio" name="numberTeams" value="8" id="eight"></input>
+      </div>
+      <div class="radioDiv">
+        <label class="radioLabel" for="nine">9</label>
+        <input class="radio" type="radio" name="numberTeams" value="9" id="nine"></input>
+      </div>
+      <div class="radioDiv">
+        <label class="radioLabel" for="ten">10</label>
+        <input class="radio" type="radio" name="numberTeams" value="10" id="ten"></input>
+      </div>
+      <div class="radioDiv">
+
+      </div>
     </div>
     <input type="submit" value="Generate" id="generate"></input>
   </form>
-  <div class="teamContainer">
-
+  <div class="wrapper">
+    <aside class="alphList">
+      <h2>Members</h2>
+    </aside>
+    <div class="teamContainer">
+      <h2>Teams</h2>
+    </div>
   </div>
+
 
 <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 <script src="app.js"></script>

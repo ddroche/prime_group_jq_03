@@ -7,6 +7,7 @@ function Member(firstName, lastName) {
   this.firstName = firstName;
   this.lastname = lastName;
   this.lastInitial = lastName.charAt(0) + '.';
+  this.fullName = firstName + ' ' + lastName;
 }
 
 var adia = new Member('Adia', 'Alderson');
@@ -61,6 +62,16 @@ function instantiateMembers() {
   return memberArray;
 }
 
+function instantiateTeam(numTeams) {
+  var teamArray = [];
+
+  for(var i = 0; i < numTeams; i++) {
+    teamArray[i] = new Team('Team ' + (i));
+  }
+
+  return teamArray;
+}
+
 // function copyArray(array) {
 //   var tempArray = [];
 //   array.forEach(function(elem) {
@@ -104,10 +115,19 @@ function shuffle(array) {
 }
 
 $(document).ready(function() {
+  var memberArray = instantiateMembers();
+
+  memberArray.forEach(function(elem) {
+    $('.alphList').append($('<div class="memberBox">' +
+                  '<p class="member">' + elem.fullName + '</p></div>'));
+  });
+
   $('form').on('submit', function(event) {
     try {
+
+      // clear teamContainer
       $('.teamContainer').empty();
-      var memberArray = instantiateMembers();
+      memberArray = instantiateMembers();
       console.log(memberArray);
       var numTeams = $('input[name="numberTeams"]:checked').val();
       console.log(numTeams);
@@ -116,24 +136,39 @@ $(document).ready(function() {
       }
       console.log(shuffle(memberArray));
 
-      var teamArray = [];
+      //instantiate the teams and reapply h2 that was cleared
+      var teamArray = instantiateTeam(numTeams);
+      $('.teamContainer').append('<h2>Teams</h2>');
 
-      for(var i = 0; i < numTeams; i++) {
-        teamArray[i] = new Team('Team ' + (i + 1));
-      }
+      //iterate through team array and create a div for each
+      teamArray.forEach(function(elem) {
+        $('.teamContainer').append($('<div class="team"><h3>' + elem.teamName +
+                            '</h3></div>'));
+      });
 
+      // assign members to teams
       while(memberArray.length > 0) {
-        teamArray.forEach(function(elem) {
-          elem.members.push(memberArray.pop());
-        });
+        for(var k = 0; k < teamArray.length; k++) {
+          var $memberSelector = $('div.memberBox:contains(' +
+                            memberArray[memberArray.length - 1].fullName + ')');
+          console.log($memberSelector);
+          console.log(memberArray[memberArray.length - 1]);
+          // $memberSelector.fadeOut('slow').delay(500);
+          teamArray[k].members.push(memberArray.pop());
+          var elem = teamArray[k].members[teamArray[k].members.length - 1];
+
+          $('div.team:contains(' + teamArray[k].teamName +
+                        ')').append($('<div class="memberBox">' +
+                        '<p class="member">' + elem.fullName + '</p></div>'));
+          if(memberArray.length === 0) {
+            break;
+          }
+
+          // $memberSelector.fadeOut('slow').delay(500);
+        }
       }
 
-      // TODO: delete undefined member objects in teams
       console.log(teamArray);
-
-      for (var j = 0; j < numTeams; j++) {
-        $('.teamContainer').append($('<div class="team"></div>'));
-      }
 
     } catch (exception) {
       console.log(exception);
